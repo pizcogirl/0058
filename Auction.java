@@ -93,7 +93,7 @@ public class Auction
                 }
             }
         }
-        else {
+        if (selectedLot == null) {
             System.out.println("Lot number: " + lotNumber +
                 " does not exist.");
         }
@@ -136,11 +136,19 @@ public class Auction
     }
 
     /**
-     * Remove a lot, testing method
+     * Remove a lot with the given number
      */
     public void remove(int index)
     {
-        lots.remove(index - 1);
+        // Recorremos la lista hasta encontrar el objeto que buscamos
+        // y lo borramos
+         for (Lot lot : lots)
+            {
+                if (lot.getNumber() == index)
+                {
+                   lots.remove(lot);
+                }
+            }
     }
 
 }
