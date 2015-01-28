@@ -84,13 +84,15 @@ public class Auction
             // Recorremos la lista de elementos buscando el que tenga ese numero
             // si existe, hacemos las demas operaciones
             // sino devuelve un mensaje de errror
-            for (Lot lot : lots)
+            int indice = 0;
+            while ((indice < lots.size()) && (selectedLot == null))
             {
-                if (lot.getNumber() == lotNumber)
+                if (lots.get(indice).getNumber() == lotNumber)
                 {
                     // Si es correcto, devuelve el lot
-                   selectedLot = lot;
+                    selectedLot = lots.get(indice);
                 }
+                indice++;
             }
         }
         if (selectedLot == null) {
@@ -142,13 +144,18 @@ public class Auction
     {
         // Recorremos la lista hasta encontrar el objeto que buscamos
         // y lo borramos
-         for (Lot lot : lots)
+        int indice = 0;
+        boolean found = false;
+        while ((indice < (nextLotNumber - 1)) && (found == false))
+        {
+            if (lots.get(indice).getNumber() == index)
             {
-                if (lot.getNumber() == index)
-                {
-                   lots.remove(lot);
-                }
+                // Si es correcto, devuelve el lot
+                lots.remove(indice);
+                found = true;
             }
+            indice++;
+        }
     }
 
 }
