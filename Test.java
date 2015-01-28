@@ -46,4 +46,20 @@ public class Test
             System.out.println(lots.toString());
         }
     }
+    
+     public void test3()
+    {
+         Auction auction = new Auction();
+
+        auction.enterLot("1");
+        auction.enterLot("2");
+        auction.enterLot("A");
+        auction.enterLot("B");
+        auction.enterLot("C");
+        
+        auction.remove(2);
+        auction.getLot(2);
+        auction.getLot(3);
+        auction.close();
+    }
 }
