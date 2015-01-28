@@ -118,5 +118,21 @@ public class Auction
             System.out.println(details);
         }
     }
+    
+    /**
+     * Return a collection of all the unsold lots.
+     */
+    public ArrayList unsold()
+    {
+        ArrayList<Lot> unSoldLots = new ArrayList<Lot>();
+        for (Lot lot :lots)
+        {
+            if (lot.getHighestBid() == null)
+            {
+                unSoldLots.add(lot);
+            }
+        }
+        return unSoldLots;
+    }
 
 }
