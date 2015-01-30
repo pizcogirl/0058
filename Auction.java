@@ -140,22 +140,22 @@ public class Auction
     /**
      * Remove a lot with the given number
      */
-    public void remove(int index)
+    public Lot remove(int index)
     {
         // Recorremos la lista hasta encontrar el objeto que buscamos
         // y lo borramos
         int indice = 0;
-        boolean found = false;
-        while ((indice < (nextLotNumber - 1)) && (found == false))
+        Lot lot = null;;
+        while ((indice < (lots.size())) && (lot == null))
         {
             if (lots.get(indice).getNumber() == index)
             {
                 // Si es correcto, devuelve el lot
-                lots.remove(indice);
-                found = true;
+                lot = lots.remove(indice);
             }
             indice++;
         }
+        return lot;
     }
 
 }
