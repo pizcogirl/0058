@@ -107,11 +107,14 @@ public class Auction
      */
     public void close()
     {
+        Bid puja;
         for(Lot lot : lots) {
+            puja = lot.getHighestBid();
             String details = lot.getNumber() + " : " + lot.getDescription();
-            if (lot.getHighestBid() != null)
+            if (puja != null)
             {
-                details = details + "(Highest bid : " + lot.getHighestBid().getValue() + " from: " + lot.getHighestBid().getBidder().getName();
+                details = details + "(Highest bid : " + lot.getHighestBid().getValue() + " from: " + 
+                                    puja.getBidder().getName();
             }
             else
             {
@@ -124,7 +127,7 @@ public class Auction
     /**
      * Return a collection of all the unsold lots.
      */
-    public ArrayList unsold()
+    public ArrayList<Lot> unsold()
     {
         ArrayList<Lot> unSoldLots = new ArrayList<Lot>();
         for (Lot lot :lots)
